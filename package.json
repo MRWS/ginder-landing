@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "node-sass": "^4.8.3",
-    "normalize.css": "^8.0.0"
+    "normalize.css": "^8.0.0",
+    "particles.js": "^2.0.0"
   }
 }
