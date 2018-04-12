@@ -2,10 +2,25 @@ main {
   .wrap {
     margin-top: 10vh;
     display: flex;
+    position: relative;
 
     @media (max-width: 1200px) {
       flex-direction: column;
       align-items: center;
+    }
+
+    .bottom {
+      position: absolute;
+      bottom: 0;
+      height: 10rem;
+      background-color: #fff;
+      width: 99.3vw;
+      left: 50%;
+      transform: translateX(-50%);
+      @media (max-width: 1200px) {
+        width: 100%;
+        height: 20rem;
+      }
     }
   }
 
@@ -17,6 +32,15 @@ main {
 
   .mockup {
     width: 70rem;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all .4s cubic-bezier(0.550, 0.085, 0.680, 0.530);
+
+    &.animate {
+      transform: translateY(0);
+      opacity: 1;
+    }
 
     @media (max-width: 1200px) {
       max-width: 100%;
@@ -28,6 +52,15 @@ main {
     flex-grow: 1;
     padding: 0 10vw;
     margin-bottom: 5rem;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all .4s cubic-bezier(0.550, 0.085, 0.680, 0.530);
+
+    &.animate {
+      transform: translateY(0);
+      opacity: 1;
+    }
 
     @media (max-width: 800px) {
       padding: 0;

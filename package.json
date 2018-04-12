@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "autoprefixer": "^8.2.0",
+    "chart.js": "^2.7.2",
     "node-sass": "^4.8.3",
     "normalize.css": "^8.0.0",
     "particles.js": "^2.0.0",
