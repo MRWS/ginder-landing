@@ -11,6 +11,7 @@ body {
   font-family: 'Lato', sans-serif;
   min-height: 100vh;
   background: #e8f3f8;
+  position: relative;
 }
 
 a {
@@ -36,6 +37,12 @@ button {
   outline: none;
   cursor: pointer;
   text-transform: uppercase;
+  transition: .3s background-color;
+
+  &:hover {
+    background: darken(#0b486b, 5);
+    transition: .3s background-color;
+  }
 }
 
 @import './particles.scss';
