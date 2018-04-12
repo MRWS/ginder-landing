@@ -18,4 +18,27 @@ a {
   text-decoration: inherit;
 }
 
-@import './particles.scss'
+.wrap {
+  max-width: 120rem;
+  margin: 0 auto;
+
+  @media (max-width: 100rem) {
+    padding: 0 2rem;
+  }
+}
+
+button {
+  padding: 1em 3rem;
+  background: #0b486b;
+  border: none;
+  color: white;
+  border-radius: 2.5rem;
+  outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+@import './particles.scss';
+@import './header.scss';
+@import './main.scss';
+@import './footer.scss';

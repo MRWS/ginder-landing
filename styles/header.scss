@@ -1,0 +1,23 @@
+header {
+  background: white;
+
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    height: 10rem;
+    align-items: center;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+
+    > div {
+      margin-left: 2em;
+    }
+  }
+
+  .icon img {
+    width: 12rem;
+  }
+}
