@@ -11,42 +11,47 @@ var app = {
       }
 
       app.checkIE();
-      app.chartBuilder();
       app.counter();
       app.animate();
     },
     chartBuilder: function() {
       var charts = document.querySelectorAll('.canvas_chart');
       charts.forEach(function(chart, k) {
-        var value = parseInt(chart.parentNode.querySelector('.chart_stat .value').getAttribute('data-value'));
-        chart = chart.getContext('2d');
-        var config = {
-          type: 'doughnut',
-          data: {
-            datasets: [{
-              data: [
-                value,
-                100 - value,
-              ],
-              backgroundColor: [
-                "#05476C",
-                "white",
-              ],
-              label: 'Dataset 1'
-            }],
-          },
-          options: {
-            responsive: false,
-            legend: {
-              position: 'top',
+        var $span = chart.parentNode.querySelector('.chart_stat .value'),
+            value = parseInt($span.getAttribute('data-value')),
+            build = $span.getAttribute('data-build');
+        if (build === "false" && chart.parentNode.parentNode.classList.contains("animate")) {
+          chart = chart.getContext('2d');
+
+          var config = {
+            type: 'doughnut',
+            data: {
+              datasets: [{
+                data: [
+                  value,
+                  100 - value,
+                ],
+                backgroundColor: [
+                  "#05476C",
+                  "white",
+                ],
+                label: 'Dataset 1'
+              }],
             },
-            animation: {
-              animateScale: true,
-              animateRotate: true
+            options: {
+              responsive: false,
+              legend: {
+                position: 'top',
+              },
+              animation: {
+                animateScale: true,
+                animateRotate: true
+              }
             }
-          }
-        };
-        window.myDoughnut = new Chart(chart, config);
+          };
+          window.myDoughnut = new Chart(chart, config);
+          $span.setAttribute("data-build", "true");
+        }
       });
 
     },
@@ -55,10 +60,10 @@ var app = {
       for (var i = 0; i < stats.length; i++) {
         var stat = stats[i];
 
-        app.test(stat);
+        app.inc(stat);
       }
     },
-    test: function(elem) {
+    inc: function(elem) {
       var value       = elem.querySelector('span.value'),
           stat        = parseInt(value.innerText),
           startNumber = 0;
@@ -92,10 +97,16 @@ var app = {
             _wh      = screen.height - parseInt(_style.marginTop) - parseInt(_style.marginBottom),
             _offsetT = _this.offsetTop + parseInt(_style.marginTop) + _wh * .05,
             _scroll  = window.scrollY,
-            _screen  = _scroll + _wh;
+            _screen  = _scroll + _wh,
+            _charts  = _this.querySelector('.canvas_chart');
+
 
       if (_screen >= _offsetT) {
         _this.classList.add("animate");
+
+        if (_charts) {
+          app.chartBuilder();
+        }
       }
     }
   },
