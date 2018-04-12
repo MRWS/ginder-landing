@@ -1,0 +1,18 @@
+body {
+  &.ie {
+    header {
+      .wrap {
+        .icon {
+          width: 12rem;
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+    .description {
+      width: 100%;
+    }
+  }
+}
