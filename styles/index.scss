@@ -11,6 +11,7 @@ body {
   font-family: 'Lato', sans-serif;
   min-height: 100vh;
   position: relative;
+  color: #0b486b;
 }
 
 a {
@@ -42,6 +43,11 @@ button {
     background: darken(#0b486b, 5);
     transition: .3s background-color;
   }
+}
+
+p {
+  font-size: 1.8rem;
+  line-height: 1.5;
 }
 
 @import './particles.scss';
