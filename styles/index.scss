@@ -38,6 +38,7 @@ button {
   cursor: pointer;
   text-transform: uppercase;
   transition: .3s background-color;
+  font-family: 'Dosis', sans-serif;
 
   &:hover {
     background: darken(#0b486b, 5);
@@ -48,6 +49,10 @@ button {
 p {
   font-size: 1.8rem;
   line-height: 1.5;
+}
+
+h1, h2 {
+  font-family: 'Dosis', sans-serif;
 }
 
 @import './particles.scss';
