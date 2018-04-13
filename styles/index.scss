@@ -12,6 +12,7 @@ body {
   min-height: 100vh;
   position: relative;
   color: #0b486b;
+  scroll-behavior: smooth;
   @media (max-width: 1200px) {
     padding-top: 100px;
   }

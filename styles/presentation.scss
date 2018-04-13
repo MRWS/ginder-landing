@@ -3,9 +3,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 50px 0 0;
-  background: #fff;
+  padding: 50px 0 250px;
+  background-image: url('../img/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   position: relative;
+  background-position: center;
+  scroll-behavior: smooth;
+  @media (max-width: 1200px) {
+    padding: 50px 0 100px;
+  }
   .separator {
     position: absolute;
     bottom: 100%;
@@ -24,6 +31,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     @media (max-width: 999px) {
       flex-direction: column;
     }
@@ -40,6 +48,48 @@
       opacity: 0;
       transform: translateX(-50px);
       transition: all .4s cubic-bezier(0.550, 0.085, 0.680, 0.530);
+
+      &.first {
+        position: relative;
+        &:before {
+          content: '';
+          position: absolute;
+          width: 75%;
+          height: 100%;
+          background: #e8f3f8;
+          top: 0;
+          left: -10%;
+          z-index: -1;
+          opacity: 0.55;
+        }
+      }
+
+      &.second {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        opacity: 0;
+        width: 50%;
+        transform: translateX(-50%) translateY(50px);
+        margin-bottom: 50px;
+        @media (max-width: 1200px) {
+          transform: translateX(0) translateY(50px);
+          position: inherit;
+          width: 100%;
+          margin-top: 50px;
+        }
+        p {
+          width: 100%;
+        }
+
+        &.animate {
+          opacity: 1;
+          transform: translateX(-50%) translateY(0);
+          @media (max-width: 1200px) {
+            transform: translateX(0) translateY(0);
+          }
+        }
+      }
 
       &.animate {
         opacity: 1;

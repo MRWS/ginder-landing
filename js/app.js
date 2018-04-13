@@ -14,6 +14,7 @@ var app = {
       app.counter();
       app.animate();
       app.burger();
+      app.smooth();
     },
     burger: function() {
       var burger = document.querySelector('.burger'),
@@ -28,6 +29,29 @@ var app = {
         this.classList.toggle('active');
         cta.classList.toggle('mobile');
       });
+    },
+    smooth: function() {
+      var burger = document.querySelector('.burger'),
+          anchors = document.querySelectorAll('.smooth'),
+          speed   = 750;
+
+      for (var i = 0; i < anchors.length; i++) {
+        anchors[i].addEventListener('click', function(e) {
+          var _href   = this.getAttribute('href'),
+              _elem   = document.querySelector(_href),
+              _scroll = _elem.offsetTop;
+
+          if (burger.classList.contains('active')) {
+            burger.click();
+          }
+          window.scroll({
+            top: _scroll,
+            left: 0,
+            behavior: 'smooth'
+          });
+          e.preventDefault();
+        });
+      }
     },
     chartBuilder: function(_screen, _offsetT) {
       var charts = document.querySelectorAll('.canvas_chart');
