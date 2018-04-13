@@ -20,9 +20,8 @@ var app = {
         var $span = chart.parentNode.querySelector('.chart_stat .value'),
             value = parseInt($span.getAttribute('data-value')),
             build = $span.getAttribute('data-build');
-        if (build === "false" && chart.parentNode.parentNode.classList.contains("animate")) {
+        if (build === "false" && $span.classList.contains("animate")) {
           chart = chart.getContext('2d');
-
           var config = {
             type: 'doughnut',
             data: {

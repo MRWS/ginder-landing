@@ -1,11 +1,7 @@
 footer {
-  position: absolute;
-  bottom: 0;
   height: 20rem;
-  background: white;
-  left: 0;
-  right: 0;
-  z-index: -1;
+  background: rgba(255,255,255,.7);
+
 
   @media (max-width: 1200px) {
     height: 55%;
