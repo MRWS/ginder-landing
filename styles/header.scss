@@ -1,5 +1,6 @@
 header {
   background: white;
+  font-family: 'Dosis', sans-serif;
 
   .wrap {
     display: flex;
@@ -11,6 +12,7 @@ header {
   nav {
     display: flex;
     align-items: center;
+    text-transform: uppercase;
 
     > div {
       margin-left: 2em;
