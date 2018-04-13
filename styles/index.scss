@@ -12,6 +12,12 @@ body {
   min-height: 100vh;
   position: relative;
   color: #0b486b;
+  @media (max-width: 1200px) {
+    padding-top: 100px;
+  }
+  &.mobile {
+    overflow: hidden;
+  }
 }
 
 a {

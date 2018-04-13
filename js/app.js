@@ -13,14 +13,29 @@ var app = {
       app.checkIE();
       app.counter();
       app.animate();
+      app.burger();
     },
-    chartBuilder: function() {
+    burger: function() {
+      var burger = document.querySelector('.burger'),
+          nav    = document.querySelector('nav'),
+          cta    = document.querySelector('.cta'),
+          header = document.querySelector('header');
+
+      burger.addEventListener('click', function(e) {
+        document.body.classList.toggle('mobile');
+        nav.classList.toggle('active');
+        nav.style.top = (header.offsetHeight + 'px') || (header.clientHeight + 'px');
+        this.classList.toggle('active');
+        cta.classList.toggle('mobile');
+      });
+    },
+    chartBuilder: function(_screen, _offsetT) {
       var charts = document.querySelectorAll('.canvas_chart');
       charts.forEach(function(chart, k) {
         var $span = chart.parentNode.querySelector('.chart_stat .value'),
             value = parseInt($span.getAttribute('data-value')),
             build = $span.getAttribute('data-build');
-        if (build === "false" && $span.classList.contains("animate")) {
+        if (build === "false" && _screen > _offsetT) {
           chart = chart.getContext('2d');
           var config = {
             type: 'doughnut',
@@ -32,15 +47,22 @@ var app = {
                 ],
                 backgroundColor: [
                   "#05476C",
-                  "white",
+                  "#e8f3f8",
                 ],
+                borderWidth: 0,
+                borderColor: 'rgba(0,0,0,0)',
                 label: 'Dataset 1'
               }],
             },
             options: {
+              events: [],
               responsive: false,
               legend: {
+                display: false,
                 position: 'top',
+              },
+              tooltips: {
+                enabled: false,
               },
               animation: {
                 animateScale: true,
@@ -104,7 +126,7 @@ var app = {
         _this.classList.add("animate");
 
         if (_charts) {
-          app.chartBuilder();
+          app.chartBuilder(_screen, _offsetT);
         }
       }
     }
