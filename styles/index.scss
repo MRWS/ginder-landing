@@ -17,7 +17,9 @@ body {
     padding-top: 100px;
   }
   &.mobile {
-    overflow: hidden;
+    @media (max-width: 1200px) {
+      overflow: hidden;
+    }
   }
 }
 
