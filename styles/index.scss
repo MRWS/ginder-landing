@@ -11,6 +11,13 @@ body {
   font-family: 'Lato', sans-serif;
   min-height: 100vh;
   position: relative;
+  color: #0b486b;
+  @media (max-width: 1200px) {
+    padding-top: 100px;
+  }
+  &.mobile {
+    overflow: hidden;
+  }
 }
 
 a {
@@ -37,11 +44,21 @@ button {
   cursor: pointer;
   text-transform: uppercase;
   transition: .3s background-color;
+  font-family: 'Dosis', sans-serif;
 
   &:hover {
     background: darken(#0b486b, 5);
     transition: .3s background-color;
   }
+}
+
+p {
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+
+h1, h2 {
+  font-family: 'Dosis', sans-serif;
 }
 
 @import './particles.scss';
