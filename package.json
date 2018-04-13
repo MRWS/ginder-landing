@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "deploy": "rm -rf ./build/* && parcel build index.html --out-dir build && cp -R CNAME ./build && cp -R particles.json ./build && surge ./build"
   },
   "repository": {
     "type": "git",
